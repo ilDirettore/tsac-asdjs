@@ -279,6 +279,42 @@ Dato un array contenente n^2 elementi, scrivere un algoritmo che permetta di ins
 oggetti in un array bidimensionale n x n.
 */
 
+function matrix(a) {
+    matrice = [];
+    v = 0;
+    n = Math.sqrt(a.length);
+    for (i = 0; i < n; i++) {
+        matrice[i] = [];
+        for (j = 0; j < n; j++) {
+            matrice[i][j] = a[v];
+            v++;
+        }
+    }
+    return matrice;
+}
+
+function ex_8_I(a) {
+    return matrix(a);
+}
+
+function matrixR(a, m, n) {
+    if (a.length == 0) {
+        return m;
+    } else {
+        b = [n];
+        for (i = 0; i < n; i++) {
+            b[i] = a[i];
+        }
+        m[m.length] = b;
+        return matrixR(a.slice(n), m, n);
+    }
+}
+
+function ex_8_R(a) {
+    m = [];
+    return matrixR(a, m, Math.sqrt(a.length));
+}
+
 /*
 Esercizio 9
 
