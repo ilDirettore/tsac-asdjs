@@ -208,7 +208,7 @@ function div(a, b) {
         ris++;
         a = a - b;
     } 
-    return ris + " resto " + a;
+    return [ris, a];
 }
 
 function ex_6_I(a, b) {
@@ -227,7 +227,7 @@ function F_divR(a, b) {
         return 0;
     else {
         ris = divR(a, b);
-        return ris + " resto " + (a - (mult(ris, b)));
+        return [ris, (a - mult(ris, b))];
     }
 }
 
