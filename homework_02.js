@@ -230,8 +230,8 @@ Input: A = {2, 5, 1, 8}
 Output: A = {5, 1, 2, 8}
 */
 
-/*function ex_11_F(array) {
+function ex_11_F(array) {
     odd = array.filter(function (x) {return x % 2 != 0;});
     even = array.filter(function (x) {return x % 2 == 0;});
     return odd.concat(even);
-}*/
+}
