@@ -26,7 +26,7 @@ Stack.prototype.isEmpty = function() {
     }
 }
 
-function deciTObin(x) {
+function dec2bin(x) {
     bin = new Stack();
     while (x > 0) {
         bin.push(x % 2);
@@ -38,39 +38,3 @@ function deciTObin(x) {
     }
     return str;
 }
-
-function RPN(str) {
-    var array = str.split(' ');
-    var operandi = new Stack();
-    var item, op1, op2;
-    while(array.length > 0) {
-        item = array.shift();
-        switch (item) {
-            case '+':
-                op1 = operandi.pop();
-                op2 = operandi.pop();
-                operandi.push(op2 + op1);
-                break;
-            case '-':
-                op1 = operandi.pop();
-                op2 = operandi.pop();
-                operandi.push(op2 - op1);
-                break;
-            case '*':
-                op1 = operandi.pop();
-                op2 = operandi.pop();
-                operandi.push(op2 * op1);
-                break;
-            case '/':
-                op1 = operandi.pop();
-                op2 = operandi.pop();
-                operandi.push(op2 / op1);
-                break;
-            default:
-                operandi.push(parseInt(item));
-        }
-    }
-    return operandi.pop();
-}
-
-document.write("<h1>Il risultato è: " + RPN('20 15 100 5 - * + 21 -') + "</h1><h3>powered by ilDirettore</h3>");
