@@ -43,12 +43,15 @@ Stack.prototype.isEmpty = function() {
     }
 }
 
-function ex_3(myaaray) {
+function ex_3(myarray) {
     var even = new Stack();
     var odd = new Stack();
-    var arr2 = [even];
-    arr2.push(odd);
-    myaaray.forEach(function (x){(x % 2 == 0)?this[0].push(x):this[1].push(x)}, arr2);
+    myarray.forEach(function(x) {
+        if (x % 2 == 0)
+            even.push(x);
+        else
+            odd.push(x);
+    });
     var result = new Stack();
     while(!even.isEmpty() && !odd.isEmpty()) {
         result.push(even.pop() * odd.pop())
@@ -151,11 +154,9 @@ function main() {
     albero.add("vasyl");
     albero.add("manuel");
     albero.add("ale giov");
-    albero.add("ilDirettore");
     inOrder(albero.root, function(x) {console.log(x)});
     console.log(searchTree(albero.root, "ale giov"));
     console.log(searchNode(albero.root, "alegiov"));
 }
 
 main();
-
