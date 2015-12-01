@@ -5,19 +5,19 @@ function T(myarray, result) {
         return T(myarray.slice(1), result + (5 * myarray[0]));
 }
 
-function Tfacade(array) {
+function ex_1a(array) {
     return T(array, 10);
 }
 
-console.log(Tfacade([5, 5]));
+console.log(ex_1a([5, 5]));
 
-function sumEvenSQR(myarray) {
+function ex_2(myarray) {
     var arrEven = myarray.filter(function(x) {return x % 2 == 0;});
     var arrSQR = arrEven.map(function(x) {return x * x;});
     return arrSQR.reduce(function(acc, x) {return acc + x;}, 0);
 }
 
-console.log(sumEvenSQR([2, 4, 5]));
+console.log(ex_2([2, 4, 5]));
 
 function Stack() {
     this.myarray = [];
@@ -43,7 +43,7 @@ Stack.prototype.isEmpty = function() {
     }
 }
 
-function stackQueue(myaaray) {
+function ex_3(myaaray) {
     var even = new Stack();
     var odd = new Stack();
     var arr2 = [even];
@@ -60,7 +60,7 @@ function stackQueue(myaaray) {
     return rsl;
 }
 
-console.log(stackQueue([2,8,12,3,7]));
+console.log(ex_3([2,8,12,3,7]));
 
 function Node(i, left, right) {
     this.item = i;
