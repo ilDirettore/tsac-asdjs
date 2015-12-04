@@ -12,9 +12,7 @@ function ex_1a(array) {
 console.log(ex_1a([5, 5]));
 
 function ex_2(myarray) {
-    var arrEven = myarray.filter(function(x) {return x % 2 == 0;});
-    var arrSQR = arrEven.map(function(x) {return x * x;});
-    return arrSQR.reduce(function(acc, x) {return acc + x;}, 0);
+    return myarray.filter(function(x) {return x % 2 == 0;}).map(function(x) {return x * x;}).reduce(function(acc, x) {return acc + x;}, 0);
 }
 
 console.log(ex_2([2, 4, 5]));
@@ -160,3 +158,59 @@ function main() {
 }
 
 main();
+
+function LinkedList()
+{
+    this.head=null;
+}
+
+function ListItem(i,n)
+{
+    this.item=i;
+    this.next=n;
+}
+
+LinkedList.prototype.add=function(index,element)
+{
+    if(this.head==null || index==0)
+        this.head=new ListItem(element,this.head);
+    else
+        this.addItem(0,this.head,index,element);
+}
+
+LinkedList.prototype.addItem=function(previousIndex,previousItem,index,element)
+{
+    if(++previousIndex<index && previousItem.next!=null)
+        this.addItem(previousIndex,previousItem.next,index,element);
+    else
+        previousItem.next=new ListItem(element,previousItem.next);
+}
+
+LinkedList.prototype.get=function(index)
+{
+    var item=this.head;
+    for(var i=0;i<index && item.next!=null;i++)
+    {
+        item=item.next;
+    }
+    return item.item;
+}
+
+function main2()
+{
+    var l=new LinkedList();
+    l.add(0,'a');
+    l.add(1,'b');
+    l.add(1,'c');
+    l.add(5,'d');
+    l.add(0,'e');
+    console.log(l.get(0));
+    console.log(l.get(1));
+    console.log(l.get(2));
+    console.log(l.get(3));
+    console.log(l.get(4));
+    console.log(l.get(8));
+    console.log(l);
+}
+
+main2();
